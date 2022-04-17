@@ -1,8 +1,9 @@
 require("dotenv").config();
 const express = require("express");
 const connect = require("./config/db");
-const {login, register, newToken} = require("./controllers/auth.controller");
+const {login, register} = require("./controllers/auth.controller");
 const userController = require("./controllers/user.controller");
+const flatController = require("./controllers/flat.controller");
 const cors = require("cors");
 
 const app = express();
@@ -16,6 +17,9 @@ app.use(express.json());
 
 //user controller
 app.use("/users", userController);
+
+//flat controller
+app.use("/flat", flatController);
 
 //login and register controller
 app.post("/login", login)
