@@ -46,7 +46,7 @@ router.get("/dialer_id", async (req,res) => {
         .lean().exec();
  
         const totalPages = Math.ceil(
-            (await Dhtml.find({block:block}).countDocuments())/size
+            (await Dhtml.find({dialer_id:dialer_id}).countDocuments())/size
         );
 
         return res.send({dhtml,totalPages});
