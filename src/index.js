@@ -4,6 +4,7 @@ const connect = require("./config/db");
 const {login, register} = require("./controllers/auth.controller");
 const userController = require("./controllers/user.controller");
 const flatController = require("./controllers/flat.controller");
+const dhtmlController = require("./controllers/dhtml.controller");
 const cors = require("cors");
 
 const app = express();
@@ -20,6 +21,9 @@ app.use("/users", userController);
 
 //flat controller
 app.use("/flat", flatController);
+
+//dhtml controller
+app.use('/dhtml',dhtmlController);
 
 //login and register controller
 app.post("/login", login)
